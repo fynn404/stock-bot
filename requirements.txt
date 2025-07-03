@@ -1,0 +1,5 @@
+Flask
+APScheduler
+matplotlib
+pandas
+requests
