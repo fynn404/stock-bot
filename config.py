@@ -18,8 +18,8 @@ PLOT_IMAGE_PATH = STATIC_DIR / "latest_plot.png"
 
 # 如果你使用 yagmail，请先在终端执行：
 # yagmail register your_email@example.com 'your_app_password'
-EMAIL_SENDER = "your_email@example.com"          # 发件人（Yagmail已注册）
-EMAIL_TO = ["recipient1@example.com"]             # 收件人列表
+EMAIL_SENDER = "1940669310@qq.com"          # 发件人（Yagmail已注册）
+EMAIL_TO = ["tyutxf@outlook.com"]             # 收件人列表
 
 # 邮件内容模板配置（可以也放外部 HTML 文件）
 EMAIL_SUBJECT = "📰 Fear & Greed Index Daily Report"

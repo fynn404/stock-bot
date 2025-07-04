@@ -3,7 +3,8 @@ import matplotlib.dates as mdates
 from matplotlib.collections import LineCollection
 from matplotlib.lines import Line2D
 from datetime import datetime
-from fetch_data import get_fear_greed_data
+from core.fetch_data import get_fear_greed_data
+from config import PLOT_IMAGE_PATH, FIG_WIDTH, FIG_HEIGHT, FEAR_THRESHOLD, GREED_THRESHOLD, X_AXIS_DATE_FORMAT, X_AXIS_WEEKDAY
 
 def plot_fear_greed_colored():
     data = get_fear_greed_data()
@@ -34,18 +35,15 @@ def plot_fear_greed_colored():
     lc = LineCollection(segments, colors=colors, linewidths=2)
 
     # 绘图
-    fig, ax = plt.subplots(figsize=(16, 8))
+    fig, ax = plt.subplots(figsize=(FIG_WIDTH, FIG_HEIGHT))
     ax.add_collection(lc)
     ax.autoscale()
     # 设置横轴为每周显示一次
-    ax.xaxis.set_major_locator(mdates.WeekdayLocator(interval=1, byweekday=mdates.MO))
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-    fig.autofmt_xdate()
-
-
-    # 添加参考线
-    ax.axhline(75, color='red', linestyle='--', linewidth=1, label='Greed Threshold (75)')
-    ax.axhline(25, color='green', linestyle='--', linewidth=1, label='Fear Threshold (25)')
+    ax.xaxis.set_major_locator(mdates.WeekdayLocator(byweekday=X_AXIS_WEEKDAY))
+    ax.xaxis.set_major_formatter(mdates.DateFormatter(X_AXIS_DATE_FORMAT))
+    # 参考线
+    ax.axhline(FEAR_THRESHOLD, color='green', linestyle='--', linewidth=1, label='Fear Threshold')
+    ax.axhline(GREED_THRESHOLD, color='red', linestyle='--', linewidth=1, label='Greed Threshold')
 
     # 添加图例说明颜色逻辑
     legend_lines = [
@@ -70,7 +68,8 @@ def plot_fear_greed_colored():
     fig.autofmt_xdate()
 
     plt.tight_layout()
-    plt.show()
+    plt.savefig(PLOT_IMAGE_PATH, bbox_inches='tight')
+    plt.close()
 
 if __name__ == "__main__":
     plot_fear_greed_colored()

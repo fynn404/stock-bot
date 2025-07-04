@@ -25,8 +25,8 @@ def get_fear_greed_data():
     return response.json()
 
 
-if __name__ == "__main__":
-    data = get_fear_greed_data()
-    print(data)
-    with open('data.json', 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=4) 
+# if __name__ == "__main__":
+#     data = get_fear_greed_data()
+#     print(data)
+#     with open('data.json', 'w', encoding='utf-8') as f:
+#         json.dump(data, f, ensure_ascii=False, indent=4) 
