@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use('Agg')  # 使用无GUI后端，避免多线程/主线程GUI报错
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib.collections import LineCollection

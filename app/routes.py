@@ -5,6 +5,8 @@ main_blueprint = Blueprint("main", __name__)
 
 @main_blueprint.route("/")
 def index():
+    # 首页渲染前自动生成一次图表，确保图片存在
+    plot_fear_greed_colored()
     return render_template("index.html")
 
 @main_blueprint.route("/refresh")

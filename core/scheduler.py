@@ -18,6 +18,3 @@ def start_scheduler():
         scheduler.start()
     except (KeyboardInterrupt, SystemExit):
         print("[INFO] Scheduler stopped.")
-
-if __name__ == "__main__":
-    start_scheduler()

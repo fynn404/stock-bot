@@ -62,3 +62,5 @@ X_AXIS_WEEKDAY = 0   # 0 = Monday
 # -----------------------------
 
 DEBUG = True
+
+SECRET_KEY = "replace_with_a_random_and_secret_string"

@@ -23,7 +23,7 @@ def send_email_with_plot():
 
     # 发送邮件
     try:
-        yag.send(
+        yag.send( 
             to=EMAIL_TO,
             subject=EMAIL_SUBJECT,
             contents=[html, image_path],
@@ -31,6 +31,3 @@ def send_email_with_plot():
         print("[INFO] Email sent successfully.")
     except Exception as e:
         print(f"[ERROR] Failed to send email: {e}")
-
-if __name__ == "__main__":
-    send_email_with_plot()
